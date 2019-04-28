@@ -605,14 +605,7 @@ p,h1,h3 {
     background-color: #b9b9b9;
 }
 
-.horisontal-line {
-    position: absolute;
-    top: 917px;
-    left: 1608px;
-    height: 1px;
-    width: 192px;
-    background-color: #b9b9b9;
-}
+
 
 @media only screen and (max-width: 1203px) {
     .logo {
