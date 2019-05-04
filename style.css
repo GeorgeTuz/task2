@@ -9,16 +9,6 @@
     font-weight: normal;
     font-style: normal;
   }
-  /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-  /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-  /*
-  @media screen and (-webkit-min-device-pixel-ratio:0) {
-    @font-face {
-      font-family: 'fontello';
-      src: url('../font/fontello.svg?39821697#fontello') format('svg');
-    }
-  }
-  */
    
    [class^="icon-"]:before, [class*=" icon-"]:before {
     font-family: "fontello";
@@ -89,7 +79,12 @@ p,h1,h3 {
     margin: 0;
 }
 
-.header ul {
+a {
+    text-decoration: none;
+    color: #535353;
+}
+
+.menu ul {
     margin: 0;
     padding: 0;
 } 
@@ -99,17 +94,20 @@ p,h1,h3 {
 }
 
 .header {
+    background: url("assets/images/background.jpg") no-repeat;
+    background-size: 100%;
+}
+
+.container-header {
     display: flex;
-    flex-wrap: wrap;
-    background: url("assets/images/background.jpg");
+    width: 78%;
+    margin: 0 auto;
 }
 
 .logo {
-    width: 20%;
+    width: 320px;
     order: 1;
-    padding-left: 12.3rem;
     font-family: 'TitilliumWeb-Bold', sans-serif;
-    height: 12em;
 } 
 
 .logo-text {
@@ -124,28 +122,48 @@ p,h1,h3 {
 } 
 
 .logo-language {
-    margin-top: 0.6em;
+    margin-top: 0.78em;
     letter-spacing: 0.1px;
     color: #858688;
+    font-size: 0.89em;
+    padding: 0;
 }
 
-.logo-language span {
+.logo-language li:not(:first-child) {
+    letter-spacing: 0.1px;
     font-family: 'TitilliumWeb-Regular', sans-serif;
-    letter-spacing: 0.7px;
+}
+
+.logo-language li:hover {
+    text-decoration: underline;
+    transition-duration: .2s;
+}
+
+li:hover {
+    transform: matrix(1.05,0,0,1.05,0,0);
+    transition-duration: .2s;
+}
+
+hr {
+    transform: rotate(113deg);
+    color: #858688;
+    width: 9px;
+    display: inline-block;
+    margin: 4px;
+    margin-bottom: 4px;
 }
 
 .menu {
     flex-grow: 1;
     order: 2;
     font-family: 'TitilliumWeb-Regular', sans-serif;
-    height: 12em;
     color: #454545;
+    margin-top: 5.25em;
 }
 
 .menu ul {
     text-align: right;
     margin-right: 0.5em;
-    margin-top: 5.25em;
     font-size: 1em;
 }
 
@@ -153,10 +171,23 @@ p,h1,h3 {
     margin-left: 1.45em;
 }
 
+.menu-item {
+    text-decoration: none;
+    color: #454545;
+}
+
+.hamburger-button {
+    display: none;
+}
+
+.hamburger-button:hover {
+    transform: matrix(1.05,0,0,1.05,0,0);
+    transition-duration: .2s;
+}
+
 .registration {
-    width: 25%;
+    width: 252px;
     order: 3;
-    height: 12em;
     color: #454545;
 }
 
@@ -166,7 +197,7 @@ p,h1,h3 {
 }
 
 .login-inline {
-    margin-left: 4em;
+    margin-left: 3.9em;
     margin-top: 5.24em;
     font-family: 'TitilliumWeb-Bold', sans-serif;
     font-size: 1em;
@@ -180,21 +211,27 @@ p,h1,h3 {
     text-decoration: none;
     padding: 0.35em 1.4em calc(.4em + 3px);
     border-radius: 30px;
+    background: #582c7e;
+  }
+
+.btn-sing:hover {
+    transform: matrix(1.05,0,0,1.05,0,0);
     background: linear-gradient(#582c7e, #647bce);
     box-shadow: 0 10px 20px rgba(76, 0, 139, 0.614);
-  }
+    transition-duration: .2s;
+}  
   
 .create-acc {
     width: 100%;
     order: 4;
-    height: 40em;
     text-align: center;
+    padding-bottom: 14.2em;
 }  
 
 .create-acc h1 {
     font-family: 'TitilliumWeb-Bold', sans-serif;
     font-size: 3.8em;
-    margin-top: 1.72em;
+    margin-top: 2.18em;
     color: #7a7a79;
 }
 
@@ -226,10 +263,15 @@ p,h1,h3 {
     text-decoration: none;
     padding: 0.65em 3.5em calc(.75em + 3px);
     border-radius: 30px;
-    background: linear-gradient(#646c92, #5f2f6a);
-    box-shadow: 0 5px 15px rgba(4, 0, 236, 0.6);
+    background: #5f2f6a;
     margin-bottom: 2.5em;
   }
+
+  .btn-create:hover {
+    background: linear-gradient(#646c92, #5f2f6a);
+    box-shadow: 0 5px 15px rgba(4, 0, 236, 0.6);
+    transition-duration: .2s;
+}  
 
 .btn-circle {
     display: inline-block;
@@ -241,6 +283,11 @@ p,h1,h3 {
     margin-bottom: -1.2em;
     margin-left: 1.05em;
 }
+
+.btn-circle:hover {
+    transform: matrix(1.05,0,0,1.05,0,0);
+    transition-duration: .2s;
+}  
 
 .icon-apple {
     background: url("assets/images/@1X.png");
@@ -257,9 +304,26 @@ p,h1,h3 {
     height: 3em;
     width: 3.1em;
 }
+
+.social-block {
+    display: block;
+    position: fixed;
+    top: 323px;
+    right: 34px;
+    width: 20px;
+    height: 100px;
+}
+
+.social-block img {
+    margin-bottom: 13px;
+}
+
+.social-block img:hover {
+    transform: matrix(1.1,0,0,1.1,0,0);
+    transition-duration: .2s;
+}
  
 .row {
-    height: 22.2em;
     display: flex;
     font-family: 'TitilliumWeb-Regular', sans-serif;
     width: 74%;
@@ -336,6 +400,7 @@ p,h1,h3 {
 
 .security-block {
     width: 62%;
+    margin-top: 6.4em;
     text-align: right;
     font-family: 'TitilliumWeb-Regular', sans-serif;
 }
@@ -373,23 +438,25 @@ p,h1,h3 {
     border-radius: 3em;
     height: 3.8em;
     justify-content: center;
+    background-color: white;
     align-items: center;
 }
 
 .row-label {
     background: url("assets/images/Layer\ 16@1X.png");
     height: 4.1em;
-    width: 61.5em;
+    width: 52.5%;
+    background-size: 100%;
     margin-top: 2.4em;
     background-repeat: no-repeat;
-    background-position: center;
+    margin-left: 20px;
 }
 
 .fon-gray {
-    height: 44em;
-    background: url("assets/images/blog-bg.png");
+    background: url("assets/images/blog-bg.png") no-repeat;
     width: 100%;
     background-position-y: 7.2em;
+    background-size: 100%;
 }
 
 .computer {
@@ -397,8 +464,8 @@ p,h1,h3 {
     background: url("assets/images/NOT\ FOR\ USE!!!!!@1X.png");
     width: 100%;
     margin-top: 2.6em;
-    background-repeat: no-repeat;
-    background-position-x: 59.5em;
+    background-repeat: no-repeat;    
+    background-position-x: 78%;
 }
 
 .text-new-email {
@@ -439,6 +506,7 @@ p,h1,h3 {
     padding-top: 6.26em;
     width: 61.5%;
     text-align: right;
+    padding-bottom: 209px;
 }
 
 .text-devise h3 {
@@ -457,6 +525,11 @@ p,h1,h3 {
 .text-devise img {
     padding-top: 1.88em;
     padding-left: 0.6em;
+}
+
+.text-devise img:hover {
+    transform: matrix(1.05,0,0,1.05,0,0);
+    transition-duration: .2s;
 }
 
 .pay {
@@ -490,8 +563,13 @@ p,h1,h3 {
     text-decoration: none;
     padding: 0.66em 1.3em calc(.75em + 3px);
     border-radius: 30px;
+    background: #5f2f6a;
+}
+
+.btn-upgrade:hover {
     background: linear-gradient(#646c92, #5f2f6a);
     box-shadow: 0 5px 15px #5f2f6a;
+    transition-duration: .2s;
 }
 
 .btn-donate {
@@ -503,15 +581,21 @@ p,h1,h3 {
     text-decoration: none;
     padding: 0.66em 2.1em calc(.75em + 3px);
     border-radius: 30px;
+    background: #40aae3;
+    margin-left: 2.4em;
+}
+
+.btn-donate:hover {
     background: linear-gradient(#5e7bea92, #40aae3);
     box-shadow: 0 5px 15px #38b7e1;
-    margin-left: 2.4em;
+    transition-duration: .2s;
 }
 
 .footer {
     width: 77.8%;
     margin-top: 5%;
     font-family: 'TitilliumWeb-Regular', sans-serif;
+    color: #535353;
 }
 
 .help-text {
@@ -519,6 +603,7 @@ p,h1,h3 {
     padding-right: 1.7%;
     text-align: right;
     font-size: 0.89em;
+    color: #535353;
 }
 
 .row-label-footer {
@@ -532,6 +617,7 @@ p,h1,h3 {
 .contacts {
     padding-top: 13%;
     display: flex;
+    color: #535353;
 }
 
 .emails {
@@ -540,20 +626,29 @@ p,h1,h3 {
     padding-left: 1.3%;
     font-size: 0.894em;
     line-height: 1.6em;
+    color: #535353;
 }
 
 .emails p:nth-child(4) {
-    padding-top: 12%;
+    padding-top: 26px;
+    color: #535353;
 }
 
 .footer span {
     font-family: 'TitilliumWeb-Bold', sans-serif;
+    color: #535353;
+}
+
+.footer span:hover {
+    text-decoration: underline;
+    transition-duration: .2s;
 }
 
 .contacts h3 {
     font-family: 'TitilliumWeb-Bold', sans-serif;
     font-size: 1.29em;
     padding-bottom: 1.35em;
+    color: #535353;
 }
 
 .company {
@@ -561,6 +656,12 @@ p,h1,h3 {
     font-size: 0.894em;
     line-height: 1.64em;
     text-align: right;
+    color: #535353;
+}
+
+.company p:hover {
+    text-decoration: underline;
+    transition-duration: .2s;
 }
 
 .legal {
@@ -568,6 +669,12 @@ p,h1,h3 {
     font-size: 0.894em;
     line-height: 1.64em;
     text-align: right;
+    color: #535353;
+}
+
+.legal p:hover {
+    text-decoration: underline;
+    transition-duration: .2s;
 }
 
 .neutronmail {
@@ -575,6 +682,12 @@ p,h1,h3 {
     font-size: 0.894em;
     line-height: 1.64em;
     text-align: right;
+    color: #535353;
+}
+
+.neutronmail p:hover {
+    text-decoration: underline;
+    transition-duration: .2s;
 }
 
 .footer-top-block {
@@ -586,7 +699,11 @@ p,h1,h3 {
     margin-left: 14.3%;
     margin-top:  5.22%;
     font-size: 0.894em;
-    color: rgba(92, 92, 92, 255);
+    color: #535353;
+}
+
+.Breadcrumbs ul li{
+    display: inline-block;
 }
 
 .name-organization {
@@ -594,57 +711,353 @@ p,h1,h3 {
     font-size: 0.765em;
     margin-top: 0.7em;
     color: rgba(92, 92, 92, 255);
+    margin-bottom: 30px;
+    color: #535353;
 }
 
 .vertical-line {
     position: absolute;
+    top: 918px;
+    right: 36.3%;
+    width: 1px;
+    height: 435px;
+    background-color: #b9b9b9;
+}
+
+.vertical-line-small {
+    position: absolute;
     top: 787px;
-    left: 714px;
+    left: 39.65%;
     width: 1px;
     height: 208px;
     background-color: #b9b9b9;
 }
 
+.horisontal-line {
+    position: absolute;
+    top: 1381px;
+    left: 0px;
+    width: 58%;
+    height: 1px;
+    background-color: #b9b9b9;
+    z-index: -1;
+}
 
+.horisontal-line-small {
+    position: absolute;
+    top: 917px;
+    right: 0px;
+    width: 10.6%;
+    height: 1px;
+    background-color: #b9b9b9;
+}
 
-@media only screen and (max-width: 1203px) {
-    .logo {
-        flex-basis: 30%;
-        padding-left: 2.3rem;
-        order: 1;
-        height: 8em;
-    } 
+.horisontal-line-bottom {
+    position: absolute;
+    top: 2211px;
+    right: 0px;
+    width: 77.8%;
+    height: 1px;
+    background-color: #b9b9b9;
+}
 
-    .logo-text {
-        margin-top: 1.35em;
+.vertical-line-bottom {
+    position: absolute;
+    top: 2825px;
+    right: 47.4%;
+    width: 1px;
+    height: 317px;
+    background-color: #b9b9b9;
+}
+
+@media only screen and (max-width: 1680px) {
+    .header-img {
+        margin-top: 0;
+    }
+
+    .create-acc {
+        padding-bottom: 10.2em;
+    }
+
+    .footer {
+        width: 95%;
+    }
+
+    .footer-top-block {
+        padding-right: 20px;
+    }
+
+    .vertical-line {
+        display: none;
     }
     
-    .menu {
-        flex-basis: 50%;
-        order: 2;
-        height: 8em;
+    .vertical-line-small {
+        display: none;
     }
     
-    .registration {
-        flex-basis: 100%;
-        order: 3;
-        height: 8em;
+    .horisontal-line {
+        display: none;
+    }
+    
+    .horisontal-line-small {
+        display: none;
+    }
+
+    .horisontal-line-bottom {
+        display: none;
+    }
+
+    .vertical-line-bottom {
+        display: none;
     }
 }
 
-@media only screen and (max-width: 675px) {
+@media only screen and (max-width: 1530px) {
+    .row {
+        width: 95%;
+    }
+
+    .left {
+        padding: 0;
+    }
+
+    .security-block {
+        margin-top: 2.4em;
+    }
+}
+
+@media only screen and (max-width: 1443px) {
+    .container-header {
+        width: 95%;
+
+    }
+
     .logo {
-        flex-basis: 100%;
-       
+        width: 270px;
     } 
     
-    .menu {
-        flex-basis: 100%;
+    .registration {
+        width: 260px;
+        order: 3;
+    }
+
+    .create-acc h1 {
+        font-size: 3.2em;
+        margin-top: 1.18em;
+    }
+
+    .emails {
+        margin-left: 4.3%;
+    }
+
+    .company {
+        flex-grow: 1;
+        padding: 0;
+    }
+
+
+}
+
+@media only screen and (max-width: 1232px) {
+    .create-acc {
+        padding-bottom: 6.2em;
+    }
+
+    .text-devise {
+        width: 90%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .row-label {
+        width: 90%;
+        background-size: 100%;
+    }
+}
+
+@media only screen and (max-width: 1188px) {
+    .create-acc {
+        padding-bottom: 2.2em;
+    }
+
+    .center {
+        width: 33%;
+        padding-left: 1.4em;
     }
     
-    .registration {
-        flex-basis: 100%;
+    .right {
+        width: 33%;
+        padding-left: 1.2em;
     }
+
+    .text-new-email {
+        width: 76%;
+        padding-left: 3.2%;
+    }
+}
+
+@media only screen and (max-width: 1049px) {
+    .registration {
+        width: 120px;
+        order: 3;
+    }
+    
+    .login-inline {
+        margin-left: 2em;
+    }
+
+    .btn-sing {
+        display: none;
+    }
+
+    .logo-text {
+        margin-top: 0.9em;
+    }
+
+    .menu {
+        margin-top: 2.65em;
+    }
+
+    .login-inline {
+        margin-top: 2.65em;
+    }
+
+    .create-acc h1 {
+        font-size: 2.8em;
+        margin-top: 1.18em;
+    }
+    
+    .row {
+        flex-wrap: wrap;
+    }
+
+    .left {
+        flex-basis: 100%;
+        padding-left: 1.4em;
+    }
+
+    .center {
+        flex-basis: 100%;
+        padding-left: 1.4em;
+    }
+
+    .right {
+        flex-basis: 100%;
+        padding-left: 1.4em;
+    }
+
+    .security-block {
+        width: 90%;
+    }
+
+    .security-block h3 {
+        font-size: 2.8em;
+    }
+
+    .security-block p {
+        font-size: 1em;
+    }
+
+    .row-label-footer {
+        background-size: 100%;
+        background-position-x: 0;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .hamburger-button {
+        display: inline-block;
+        background-size: 110%;
+        height: 50px;
+        width: 50px;
+        background-repeat: no-repeat;
+        background-image: url(assets/images/menu_ham.png);
+        margin-left: 20px;
+    }
+
+    .menu ul {
+        display: none;
+    }
+
+    header .menu {
+        margin-left: 0;
+    }
+
+    .registration {
+        width: 180px;
+        order: 2;
+    }
+
+    .login-inline {
+        display: flex;
+        align-items: center;
+    }
+
+    .login-inline {
+        margin-top: 2.05em;
+    }
+
+    .create-acc h1 {
+        font-size: 2.0em;
+        margin-top: 1.18em;
+    }
+
+    .create-acc h3 {
+        font-size: 1.6em;
+    }
+
+    .social-block {
+        display: none;
+    }
+
+    .computer {
+        background: none;
+    }
+
+    .text-devise {
+        padding-top: 4.26em;
+        padding-bottom: 80px;
+    }
+
+    .pay h3 {
+        font-size: 1.8em;
+    }
+
+    .pay p {
+        font-size: 1.3em;
+    }
+
+    .contacts {
+        padding-top: 13%;
+        flex-wrap: wrap;
+    }
+
+    .company {
+        flex-basis: 100%;
+        text-align: left;
+        margin-left: 4.3%;
+        margin-top: 20px;
+    }
+
+    .legal {
+        flex-basis: 100%;
+        text-align: left;
+        margin-left: 4.3%;
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    .neutronmail {
+        flex-basis: 100%;
+        text-align: left;
+        margin-left: 4.3%;
+        margin-top: 20px;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    
 
     .row {
         flex-wrap: wrap;
@@ -660,6 +1073,15 @@ p,h1,h3 {
 
     .right {
         flex-basis: 100%;
+    }
+
+    .btn-upgrade {
+        margin: 0 auto;
+    }
+
+    .btn-donate {
+        margin: 0 auto;
+        margin-top: 20px;
     }
 }
 
